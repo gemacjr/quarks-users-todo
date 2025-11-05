@@ -1,8 +1,64 @@
-# quarks-users-todo
+# Users with Todos - CRUD API
+
+A comprehensive, low-latency REST API for managing users and their todos, built with Quarkus, Hibernate Panache, and PostgreSQL.
+
+## 🚀 Features
+
+- Full CRUD operations for Users and Todos
+- RESTful API design with best practices
+- Bean Validation with comprehensive error handling
+- Pagination and filtering support
+- Optimized database queries with indexes for low latency
+- Connection pooling configured for high performance
+- Comprehensive unit tests with REST Assured
+- Global exception handling
+
+## 📚 Documentation
+
+For complete API documentation, see [API_DOCUMENTATION.md](API_DOCUMENTATION.md)
+
+## 🏗️ Tech Stack
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
+- **Framework**: Quarkus 3.29.0
+- **ORM**: Hibernate ORM with Panache
+- **Database**: PostgreSQL
+- **Testing**: JUnit 5 + REST Assured
+- **Java**: 21
+
 If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
+
+## 📋 Quick Start API Endpoints
+
+### Users
+- `GET /api/v1/users` - Get all users (with pagination)
+- `GET /api/v1/users/{id}` - Get user by ID
+- `POST /api/v1/users` - Create new user
+- `PUT /api/v1/users/{id}` - Update user
+- `DELETE /api/v1/users/{id}` - Delete user
+- `GET /api/v1/users/{id}/stats` - Get user statistics
+
+### Todos
+- `GET /api/v1/todos` - Get all todos (with filtering)
+- `GET /api/v1/todos/{id}` - Get todo by ID
+- `GET /api/v1/todos/user/{userId}` - Get user's todos
+- `POST /api/v1/todos` - Create new todo
+- `PUT /api/v1/todos/{id}` - Update todo
+- `PATCH /api/v1/todos/{id}/toggle` - Toggle completion
+- `DELETE /api/v1/todos/{id}` - Delete todo
+
+## 🗄️ Database Setup
+
+Before running the application, set up PostgreSQL:
+
+```sql
+CREATE DATABASE todos_db;
+CREATE USER postgres WITH PASSWORD 'postgres';
+GRANT ALL PRIVILEGES ON DATABASE todos_db TO postgres;
+```
+
+Update `src/main/resources/application.properties` with your database credentials if needed.
 
 ## Running the application in dev mode
 
